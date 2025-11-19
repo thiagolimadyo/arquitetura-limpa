@@ -1,0 +1,32 @@
+{
+  "name": "arquitetura-limpa",
+  "version": "1.0.0",
+  "description": "Projeto do curso Arquitetura Limpa do FormacaoDEV",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node-dev --watch --transpile-only src/index.ts",
+    "dev2": "node --watch src/index.ts",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiagolimadyo/arquitetura-limpa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/thiagolimadyo/arquitetura-limpa/issues"
+  },
+  "homepage": "https://github.com/thiagolimadyo/arquitetura-limpa#readme",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.10.1",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.5",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
+  }
+}
