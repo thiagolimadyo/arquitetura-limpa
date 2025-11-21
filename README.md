@@ -10,3 +10,9 @@ Projeto do curso Arquitetura Limpa do FormacaoDEV
 6. npm i -D jest ts-jest @types/jest @types/node
 7. npm i -D ts-node-dev
 8. npx ts-jest config:init
+9. npm i bcrypt
+10. npm i -D @types/bcrypt
+11. npm i knex pg
+12. npm install -D @types/pg
+13. npm install dotenv
+14. npm i -D ts-node typescript @types/node
