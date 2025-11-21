@@ -16,3 +16,5 @@ Projeto do curso Arquitetura Limpa do FormacaoDEV
 12. npm install -D @types/pg
 13. npm install dotenv
 14. npm i -D ts-node typescript @types/node
+15. npm i uuid
+16. npm i -D @types/uuid

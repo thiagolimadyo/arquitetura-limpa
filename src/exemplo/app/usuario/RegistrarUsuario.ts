@@ -1,10 +1,11 @@
-import type Colecao from "../portas/Colecao.ts";
-import type ProvedorCriptografia from "../portas/ProvedorCriptografia.ts";
-import type Usuario from "./Usuario.ts";
+import type ProvedorCriptografia from "./ProvedorCriptografia";
+import type ColecaoUsuario from "./ColecaoUsuario";
+import type Usuario from "./Usuario";
+import Id from "../shared/Id";
 
 export default class RegistrarUsuario {
   constructor(
-    private readonly colecao: Colecao,
+    private readonly colecao: ColecaoUsuario,
     private readonly provedorCripto: ProvedorCriptografia
   ) {}
 
@@ -12,16 +13,14 @@ export default class RegistrarUsuario {
     const senhaCripto = this.provedorCripto.criptografar(senha);
 
     const usuario: Usuario = {
-      id: (Math.random() * 1000).toFixed(0),
+      id: Id.gerar(),
       nome,
       email,
       senha: senhaCripto,
     };
 
-    const result = this.colecao.inserir(usuario);
+    this.colecao.inserir(usuario);
 
-    console.log(result);
-
-    return result;
+    return usuario;
   }
 }

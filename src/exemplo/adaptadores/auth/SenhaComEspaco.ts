@@ -1,4 +1,4 @@
-import type ProvedorCriptografia from "../../app/portas/ProvedorCriptografia";
+import type ProvedorCriptografia from "../../app/usuario/ProvedorCriptografia";
 
 export default class SenhaComEspaco implements ProvedorCriptografia {
   criptografar(senha: string): string {
