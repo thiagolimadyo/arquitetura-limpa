@@ -1,5 +1,5 @@
-import type ColecaoUsuario from "../../app/usuario/ColecaoUsuario.js";
-import type Usuario from "../../app/usuario/Usuario.js";
+import type ColecaoUsuario from "../../../core/usuario/ColecaoUsuario.js";
+import type Usuario from "../../../core/usuario/Usuario.js";
 
 export default class UsuarioEmMemoria implements ColecaoUsuario {
   private itens: Usuario[] = [];

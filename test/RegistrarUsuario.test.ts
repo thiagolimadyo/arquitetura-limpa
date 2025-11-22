@@ -1,11 +1,11 @@
-import UsuarioEmMemoria from "../src/exemplo/adaptadores/db/UsuarioEmMemoria";
-import RegistrarUsuario from "../src/exemplo/app/usuario/RegistrarUsuario";
-import InverterSenha from "../src/exemplo/adaptadores/auth/InverterSenha";
-import ProvedorCriptografia from "../src/exemplo/app/usuario/ProvedorCriptografia";
-import SenhaComEspaco from "../src/exemplo/adaptadores/auth/SenhaComEspaco";
-import CryptoReal from "../src/exemplo/adaptadores/auth/CryptoReal";
-import ColecaoUsuario from "../src/exemplo/app/usuario/ColecaoUsuario";
-import ColecaoUsuarioDB from "../src/exemplo/adaptadores/db/knex/ColecaoUsuarioDB";
+import UsuarioEmMemoria from "../src/adaptadores/db/UsuarioEmMemoria";
+import RegistrarUsuario from "../src/core/usuario/RegistrarUsuario";
+import InverterSenha from "../src/adaptadores/auth/InverterSenha";
+import ProvedorCriptografia from "../src/core/usuario/ProvedorCriptografia";
+import SenhaComEspaco from "../src/adaptadores/auth/SenhaComEspaco";
+import CryptoReal from "../src/adaptadores/auth/CryptoReal";
+import ColecaoUsuario from "../src/core/usuario/ColecaoUsuario";
+import ColecaoUsuarioDB from "../src/adaptadores/db/knex/ColecaoUsuarioDB";
 
 console.clear();
 
