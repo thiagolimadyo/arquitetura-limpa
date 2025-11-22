@@ -1,4 +1,4 @@
-import type ProvedorCriptografia from "../../../core/usuario/ProvedorCriptografia";
+import type ProvedorCriptografia from "../../core/usuario/ProvedorCriptografia.ts";
 
 export default class InverterSenha implements ProvedorCriptografia {
   criptografar(senha: string): string {

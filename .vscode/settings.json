@@ -2,7 +2,7 @@
   "material-icon-theme.folders.associations": {
     "exemplo": "custom",
     "portas": "circleci",
-    "adaptadores": "connection",
+    "adapters": "connection",
     "usuario": "admin"
   }
 }

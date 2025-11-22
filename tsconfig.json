@@ -1,29 +1,16 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
-
-    "module": "es2022",
-    "target": "es2024",
-    // "target": "esnext",
-    // "module": "nodenext",
-    // "moduleResolution": "nodenext",
-    "esModuleInterop": true,
-    "types": ["jest", "node"],
-
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-
-    "strict": true,
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true,
-    "allowJs": true
+    "target": "ES2024", // Último padrão suportado pelo Node 24
+    "module": "nodenext", // Habilita ESM com resolução moderna
+    "moduleResolution": "nodenext", // Resolve imports no estilo Node ESM
+    "esModuleInterop": true, // Permite importar libs CommonJS sem erro
+    "strict": true, // Checagem de tipos rigorosa
+    "allowImportingTsExtensions": true, // Permite usar .ts nos imports
+    "noEmit": true, // Não gera arquivos .js (rodando direto com ts-node)
+    "baseUrl": "./src", // Facilita imports absolutos
+    "paths": {
+      "@core/*": ["core/*"] // Alias para sua pasta core
+    }
   },
   "include": ["src/**/*"]
 }

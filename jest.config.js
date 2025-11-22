@@ -9,4 +9,5 @@ export default {
   transform: {
     ...tsJestTransformCfg,
   },
+  setupFiles: ["<rootDir>/test/.env.ts"],
 };

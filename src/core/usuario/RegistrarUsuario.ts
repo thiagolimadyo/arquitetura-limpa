@@ -1,7 +1,7 @@
-import type ProvedorCriptografia from "./ProvedorCriptografia";
-import type ColecaoUsuario from "./ColecaoUsuario";
-import type Usuario from "./Usuario";
-import Id from "../shared/Id";
+import type ProvedorCriptografia from "./ProvedorCriptografia.ts";
+import type ColecaoUsuario from "./ColecaoUsuario.ts";
+import type Usuario from "./Usuario.ts";
+import Id from "../shared/Id.ts";
 
 export default class RegistrarUsuario {
   constructor(

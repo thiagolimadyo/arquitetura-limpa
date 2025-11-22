@@ -18,3 +18,5 @@ Projeto do curso Arquitetura Limpa do FormacaoDEV
 14. npm i -D ts-node typescript @types/node
 15. npm i uuid
 16. npm i -D @types/uuid
+17. npm i express jsonwebtoken
+18. npm i -D @types/express @types/jsonwebtoken axios
