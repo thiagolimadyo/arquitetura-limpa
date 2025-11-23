@@ -15,7 +15,7 @@ test(`Deve registrar um novo usuário se não existir, ou erro se já existir`, 
     expect(res.status).toBe(201);
   } catch (e: any) {
     expect(e.response.status).toBe(400);
-    expect(e.response.data).toBe("Usuário já existe.");
+    expect(e.response.data.err).toBe("Usuário já existe.");
   }
 });
 
