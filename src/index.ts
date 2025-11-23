@@ -3,6 +3,8 @@ import RegistrarUsuarioController from "./controllers/RegistrarUsuarioController
 import RegistrarUsuario from "./core/usuario/RegistrarUsuario.ts";
 import ColecaoUsuarioDB from "./adapters/db/knex/ColecaoUsuarioDB.ts";
 import CryptoReal from "./adapters/auth/CryptoReal.ts";
+import LoginUsuarioController from "./controllers/LoginUsuarioController.ts";
+import LoginUsuario from "./core/usuario/LoginUsuario.ts";
 
 const app = express();
 const port = process.env.PORT ?? 3001;
@@ -24,4 +26,6 @@ const registrarUsuario = new RegistrarUsuario(
 );
 new RegistrarUsuarioController(app, registrarUsuario);
 
+const loginUsuario = new LoginUsuario(colecaoUsuario, provedorCriptografia);
+new LoginUsuarioController(app, loginUsuario);
 // Rotas Autenticadas

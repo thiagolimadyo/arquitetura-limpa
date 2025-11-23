@@ -1,21 +1,22 @@
-import RegistrarUsuario from "@core/usuario/RegistrarUsuario.ts";
+import RegistrarUsuario, { Entrada } from "../core/usuario/RegistrarUsuario.ts";
 import { Express } from "express";
 
 export default class RegistrarUsuarioController {
   constructor(
-    private servidor: Express,
-    private registrarUsuario: RegistrarUsuario
+    private readonly servidor: Express,
+    private readonly casoDeUso: RegistrarUsuario
   ) {
     servidor.post("/registrar", async (req, res) => {
       try {
-        await registrarUsuario.executar(
-          req.body.nome,
-          req.body.email,
-          req.body.senha
-        );
-        return res.status(201).send();
+        await casoDeUso.executar({
+          nome: req.body.nome,
+          email: req.body.email,
+          senha: req.body.senha,
+        });
+
+        return res.status(201).json();
       } catch (err: any) {
-        return res.status(400).send(err.message);
+        return res.status(400).json({ err: err.message });
       }
     });
   }

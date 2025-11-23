@@ -7,10 +7,10 @@
     "strict": true, // Checagem de tipos rigorosa
     "allowImportingTsExtensions": true, // Permite usar .ts nos imports
     "noEmit": true, // Não gera arquivos .js (rodando direto com ts-node)
-    "baseUrl": "./src", // Facilita imports absolutos
-    "paths": {
-      "@core/*": ["core/*"] // Alias para sua pasta core
-    }
+    "baseUrl": "./src" // Facilita imports absolutos
+    // "paths": {
+    //   "@core/*": ["core/*"] // Alias para sua pasta core
+    // }
   },
   "include": ["src/**/*"]
 }
