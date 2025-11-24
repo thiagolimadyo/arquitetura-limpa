@@ -2,9 +2,10 @@ import express from "express";
 import RegistrarUsuarioController from "./controllers/RegistrarUsuarioController.ts";
 import RegistrarUsuario from "./core/usuario/RegistrarUsuario.ts";
 import ColecaoUsuarioDB from "./adapters/db/knex/ColecaoUsuarioDB.ts";
-import CryptoReal from "./adapters/auth/CryptoReal.ts";
 import LoginUsuarioController from "./controllers/LoginUsuarioController.ts";
 import LoginUsuario from "./core/usuario/LoginUsuario.ts";
+import BcryptAdapter from "./adapters/auth/BcryptAdapter.ts";
+import JwtAdapter from "./adapters/auth/JwtAdapter.ts";
 
 const app = express();
 const port = process.env.PORT ?? 3001;
@@ -17,15 +18,20 @@ app.listen(port, () => {
 });
 
 // Rotas Abertas
+const provedorToken = new JwtAdapter(process.env.JWT_SECRET!);
 
 const colecaoUsuario = new ColecaoUsuarioDB();
-const provedorCriptografia = new CryptoReal();
+const provedorCriptografia = new BcryptAdapter();
 const registrarUsuario = new RegistrarUsuario(
   colecaoUsuario,
   provedorCriptografia
 );
 new RegistrarUsuarioController(app, registrarUsuario);
 
-const loginUsuario = new LoginUsuario(colecaoUsuario, provedorCriptografia);
+const loginUsuario = new LoginUsuario(
+  colecaoUsuario,
+  provedorCriptografia,
+  provedorToken
+);
 new LoginUsuarioController(app, loginUsuario);
 // Rotas Autenticadas

@@ -3,13 +3,13 @@ import Usuario from "../../src/core/usuario/Usuario";
 
 const baseURL = process.env.PORT_URL;
 
-test(`Deve registrar um novo usuário se não existir, ou erro se já existir`, async () => {
-  const usuario: Partial<Usuario> = {
-    nome: "João do Pulo",
-    email: "jp@intel.com",
-    senha: "123456",
-  };
+const usuario: Partial<Usuario> = {
+  nome: "Sérgio Reis",
+  email: "sr@intel.com",
+  senha: "123456",
+};
 
+test(`Deve registrar um novo usuário se não existir, ou erro se já existir`, async () => {
   try {
     const res = await axios.post(`${baseURL}/registrar`, usuario);
     expect(res.status).toBe(201);
@@ -19,14 +19,13 @@ test(`Deve registrar um novo usuário se não existir, ou erro se já existir`, 
   }
 });
 
-test("LoginUSuario, Deve validar se o usuário existe e se a senha é igual", async () => {
+test("Dve logar com e-mail e senha corretos", async () => {
   const res = await axios.post(`${baseURL}/login`, {
-    email: "jp@intel.com",
-    senha: "123456",
+    email: usuario.email,
+    senha: usuario.senha,
   });
-  console.log(`res`, res.data);
   expect(res.status).toBe(200);
-  expect(res.data.usuario.nome).toBe("João do Pulo");
-  expect(res.data.usuario.email).toBe("jp@intel.com");
+  expect(res.data.usuario.nome).toBe(usuario.nome);
+  expect(res.data.usuario.email).toBe(usuario.email);
   expect(res.data).toHaveProperty("token");
 });
