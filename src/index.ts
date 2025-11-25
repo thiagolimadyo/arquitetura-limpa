@@ -6,6 +6,9 @@ import LoginUsuarioController from "./controllers/LoginUsuarioController.ts";
 import LoginUsuario from "./core/usuario/LoginUsuario.ts";
 import BcryptAdapter from "./adapters/auth/BcryptAdapter.ts";
 import JwtAdapter from "./adapters/auth/JwtAdapter.ts";
+import SalvarTransacao from "./core/transacao/SalvarTransacao.ts";
+import SalvarTransacaoController from "./controllers/SalvarTransacaoController.ts";
+import UsuarioMiddleware from "./controllers/UsuarioMiddleware.ts";
 
 const app = express();
 const port = process.env.PORT ?? 3001;
@@ -35,3 +38,8 @@ const loginUsuario = new LoginUsuario(
 );
 new LoginUsuarioController(app, loginUsuario);
 // Rotas Autenticadas
+
+const usuarioMiddleware = UsuarioMiddleware(colecaoUsuario, provedorToken);
+
+const salvarTransacao = new SalvarTransacao();
+new SalvarTransacaoController(app, salvarTransacao, usuarioMiddleware);

@@ -1,4 +1,4 @@
-import ProvedorToken from "core/usuario/ProvedorToken.ts";
+import ProvedorToken from "../../core/usuario/ProvedorToken.ts";
 import jwt from "jsonwebtoken";
 
 export default class JwtAdapter implements ProvedorToken {
@@ -11,6 +11,6 @@ export default class JwtAdapter implements ProvedorToken {
   }
 
   validar(token: string): string | object {
-    return jwt.verify(token.replace("Bearer ", ""), this.secret);
+    return jwt.verify(token, this.secret);
   }
 }

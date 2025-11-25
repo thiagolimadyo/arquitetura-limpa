@@ -1,5 +1,5 @@
 import axios from "axios";
-import Usuario from "../../src/core/usuario/Usuario";
+import Usuario from "../../src/core/usuario/Usuario.ts";
 
 const baseURL = process.env.PORT_URL;
 
@@ -19,7 +19,7 @@ test(`Deve registrar um novo usuário se não existir, ou erro se já existir`, 
   }
 });
 
-test("Dve logar com e-mail e senha corretos", async () => {
+test("Deve logar com e-mail e senha corretos", async () => {
   const res = await axios.post(`${baseURL}/login`, {
     email: usuario.email,
     senha: usuario.senha,

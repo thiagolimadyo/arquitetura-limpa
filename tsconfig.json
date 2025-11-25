@@ -11,6 +11,6 @@
     // "paths": {
     //   "@core/*": ["core/*"] // Alias para sua pasta core
     // }
-  },
-  "include": ["src/**/*"]
+  }
+  // "include": ["src/**/*"]
 }
