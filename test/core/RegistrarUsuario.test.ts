@@ -1,10 +1,10 @@
-import UsuarioEmMemoria from "../../src/adapters/db/UsuarioEmMemoria.ts";
+import UsuarioEmMemoria from "../fake/UsuarioEmMemoria.ts";
 import RegistrarUsuario from "../../src/core/usuario/RegistrarUsuario.ts";
 import InverterSenha from "../../src/adapters/auth/InverterSenha.ts";
 import ProvedorCriptografia from "../../src/core/usuario/ProvedorCriptografia.ts";
 import SenhaComEspaco from "../../src/adapters/auth/SenhaComEspaco.ts";
 import ColecaoUsuario from "../../src/core/usuario/ColecaoUsuario.ts";
-import ColecaoUsuarioDB from "../../src/adapters/db/knex/ColecaoUsuarioDB.ts";
+import ColecaoUsuarioDB from "../../src/adapters/db/ColecaoUsuarioDB.ts";
 import BcryptAdapter from "../../src/adapters/auth/BcryptAdapter.ts";
 import usuarios from "../data/usuarios.ts";
 

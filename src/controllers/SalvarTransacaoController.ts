@@ -1,5 +1,5 @@
-import SalvarTransacao from "core/transacao/SalvarTransacao.ts";
-import { Express, Request, Response } from "express";
+import SalvarTransacao from "../core/transacao/SalvarTransacao.ts"
+import { Express, Request, Response } from "express"
 
 export default class SalvarTransacaoController {
   constructor(
@@ -9,14 +9,26 @@ export default class SalvarTransacaoController {
   ) {
     const fn = async (req: Request, res: Response) => {
       try {
-        const resposta = await casoDeUso.executar();
-        console.log(resposta);
-        return res.status(200).json(resposta);
-      } catch (err: any) {
-        return res.status(400).json({ err: err.message });
-      }
-    };
+        const transacao = {
+          descricao: req.body.descricao,
+          valor: +req.body.valor,
+          vencimento: new Date(req.body.vencimento),
+          idUsuario: req.body.idUsuario,
+        }
 
-    servidor.post("/transacao", middlewares, fn);
+        await casoDeUso.executar({
+          transacao: transacao,
+          id: req.params.id,
+          usuario: (req as any).usuario,
+        })
+
+        return res.status(200).send()
+      } catch (err: any) {
+        return res.status(400).send(err.message)
+      }
+    }
+
+    servidor.post("/transacao", middlewares, fn)
+    servidor.post("/transacao/:id", middlewares, fn)
   }
 }

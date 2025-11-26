@@ -1,7 +1,7 @@
 import express from "express";
 import RegistrarUsuarioController from "./controllers/RegistrarUsuarioController.ts";
 import RegistrarUsuario from "./core/usuario/RegistrarUsuario.ts";
-import ColecaoUsuarioDB from "./adapters/db/knex/ColecaoUsuarioDB.ts";
+import ColecaoUsuarioDB from "./adapters/db/ColecaoUsuarioDB.ts";
 import LoginUsuarioController from "./controllers/LoginUsuarioController.ts";
 import LoginUsuario from "./core/usuario/LoginUsuario.ts";
 import BcryptAdapter from "./adapters/auth/BcryptAdapter.ts";
@@ -9,6 +9,7 @@ import JwtAdapter from "./adapters/auth/JwtAdapter.ts";
 import SalvarTransacao from "./core/transacao/SalvarTransacao.ts";
 import SalvarTransacaoController from "./controllers/SalvarTransacaoController.ts";
 import UsuarioMiddleware from "./controllers/UsuarioMiddleware.ts";
+import ColecaoTransacaoDB from "../src/adapters/db/ColecaoTransacaoDB.ts";
 
 const app = express();
 const port = process.env.PORT ?? 3001;
@@ -41,5 +42,6 @@ new LoginUsuarioController(app, loginUsuario);
 
 const usuarioMiddleware = UsuarioMiddleware(colecaoUsuario, provedorToken);
 
-const salvarTransacao = new SalvarTransacao();
+const colecaoTransacao = new ColecaoTransacaoDB();
+const salvarTransacao = new SalvarTransacao(colecaoTransacao);
 new SalvarTransacaoController(app, salvarTransacao, usuarioMiddleware);

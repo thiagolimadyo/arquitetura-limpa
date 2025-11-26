@@ -9,9 +9,9 @@
     "dev2": "node --watch src/index.ts",
     "dev3": "node --watch --env-file=.env --loader ts-node/esm src/index.ts",
     "test": "jest --coverage",
-    "migrate:make": "knex migrate:make --knexfile ./src/adapters/db/knex/knexfile.ts --knexpath ./src/adapters/db/knex",
-    "migrate:down": "knex migrate:rollback --knexfile ./src/adapters/db/knex/knexfile.ts",
-    "migrate:up": "knex migrate:latest --knexfile ./src/adapters/db/knex/knexfile.ts"
+    "migrate:make": "knex migrate:make --knexfile ./src/adapters/db/knexfile.ts --knexpath ./src/adapters/db/knex",
+    "migrate:down": "knex migrate:rollback --knexfile ./src/adapters/db/knexfile.ts",
+    "migrate:up": "knex migrate:latest --knexfile ./src/adapters/db/knexfile.ts"
   },
   "repository": {
     "type": "git",
