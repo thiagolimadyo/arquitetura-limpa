@@ -9,6 +9,14 @@ export interface SaldoDTO {
 export default class Saldo {
   constructor(private readonly transacoes: Transacao[]) {}
 
+  get dto(): SaldoDTO {
+    return {
+      total: this.total,
+      receitas: this.receitas,
+      despesas: this.despesas,
+    }
+  }
+
   get total(): number {
     return this.transacoes.reduce(this._totalizar, 0)
   }
@@ -22,6 +30,6 @@ export default class Saldo {
   }
 
   private _totalizar(total: number, transacao: Transacao) {
-    return (total += transacao.valor)
+    return (total += Number(transacao.valor))
   }
 }

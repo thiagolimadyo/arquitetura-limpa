@@ -49,7 +49,10 @@ export default class ColecaoTransacaoDB implements ColecaoTransacao {
 
   private _daTabela(transacao: any): Transacao {
     return {
-      ...transacao,
+      id: transacao.id,
+      descricao: transacao.descricao,
+      valor: transacao.valor,
+      vencimento: transacao.vencimento,
       idUsuario: transacao.usuario_id,
     }
   }
